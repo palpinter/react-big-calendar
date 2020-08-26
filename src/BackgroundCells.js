@@ -43,6 +43,10 @@ class BackgroundCells extends React.Component {
     let { selecting, startIdx, endIdx } = this.state
     let current = getNow()
 
+    let handleCustomBackground = this.props.onCustomCellBackground
+      ? this.props.onCustomCellBackground(currentDate)
+      : ''
+
     return (
       <div className="rbc-row-bg">
         {range.map((date, index) => {
@@ -60,7 +64,8 @@ class BackgroundCells extends React.Component {
                   dates.eq(date, current, 'day') && 'rbc-today',
                   currentDate &&
                     dates.month(currentDate) !== dates.month(date) &&
-                    'rbc-off-range-bg'
+                    'rbc-off-range-bg',
+                  handleCustomBackground
                 )}
               />
             </Wrapper>
@@ -183,6 +188,8 @@ BackgroundCells.propTypes = {
   range: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   rtl: PropTypes.bool,
   type: PropTypes.string,
+
+  onCustomCellBackground: PropTypes.func,
 }
 
 export default BackgroundCells

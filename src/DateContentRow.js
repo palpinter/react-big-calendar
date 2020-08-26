@@ -126,6 +126,7 @@ class DateContentRow extends React.Component {
     let WeekWrapper = components.weekWrapper
 
     const eventRowProps = {
+      date,
       selected,
       accessors,
       getters,
@@ -140,6 +141,7 @@ class DateContentRow extends React.Component {
     return (
       <div className={className}>
         <BackgroundCells
+          {...this.props}
           date={date}
           getNow={getNow}
           rtl={rtl}

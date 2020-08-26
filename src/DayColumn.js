@@ -134,7 +134,8 @@ class DayColumn extends React.Component {
           'rbc-time-column',
           isNow && 'rbc-now',
           isNow && 'rbc-today', // WHY
-          selecting && 'rbc-slot-selecting'
+          selecting && 'rbc-slot-selecting',
+          this.props.onCustomCellBackground()
         )}
       >
         {slotMetrics.groups.map((grp, idx) => (
@@ -402,7 +403,7 @@ DayColumn.propTypes = {
   onSelectSlot: PropTypes.func.isRequired,
   onSelectEvent: PropTypes.func.isRequired,
   onDoubleClickEvent: PropTypes.func.isRequired,
-
+  onCustomCellBackground: PropTypes.func,
   className: PropTypes.string,
   dragThroughEvents: PropTypes.bool,
   resource: PropTypes.any,
