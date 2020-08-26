@@ -43,15 +43,15 @@ class BackgroundCells extends React.Component {
     let { selecting, startIdx, endIdx } = this.state
     let current = getNow()
 
-    let handleCustomBackground = this.props.onCustomCellBackground
-      ? this.props.onCustomCellBackground(currentDate)
-      : ''
-
     return (
       <div className="rbc-row-bg">
         {range.map((date, index) => {
           let selected = selecting && index >= startIdx && index <= endIdx
           const { className, style } = getters.dayProp(date)
+
+          let handleCustomBackground = this.props.onCustomCellBackground
+            ? this.props.onCustomCellBackground(date)
+            : ''
 
           return (
             <Wrapper key={index} value={date} range={range}>
