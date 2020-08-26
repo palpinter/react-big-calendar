@@ -27,6 +27,7 @@ export default {
 
   renderEvent(props, event) {
     let {
+      date,
       selected,
       isAllDay: _,
       accessors,
@@ -43,6 +44,7 @@ export default {
 
     return (
       <EventCell
+        date={date}
         event={event}
         getters={getters}
         localizer={localizer}

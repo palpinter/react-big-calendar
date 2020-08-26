@@ -126,6 +126,7 @@ class DateContentRow extends React.Component {
     let WeekWrapper = components.weekWrapper
 
     const eventRowProps = {
+      date,
       selected,
       accessors,
       getters,
