@@ -20,6 +20,7 @@ storiesOf('Big Calendar', module)
       events={demoEvents}
       onSelectEvent={action('event selected')}
       defaultDate={new Date(2020, 8, 26)}
+      onCustomCellBackground={() => 'custom-background-2'}
     />
   ))
   .add('default view', () => {

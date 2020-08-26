@@ -710,6 +710,8 @@ class Calendar extends React.Component {
       }),
     }),
 
+    onCustomCellBackground: PropTypes.func,
+
     /**
      * String messages used throughout the component, override to provide localizations
      */
@@ -932,7 +934,11 @@ class Calendar extends React.Component {
           onDoubleClickEvent={this.handleDoubleClickEvent}
           onSelectSlot={this.handleSelectSlot}
           onShowMore={onShowMore}
-          onCustomCellBackground={() => 'custom-background'}
+          onCustomCellBackground={
+            this.props && this.props.onCustomCellBackground
+              ? this.props.onCustomCellBackground
+              : () => ''
+          }
         />
       </div>
     )
